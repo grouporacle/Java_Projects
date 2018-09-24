@@ -1,0 +1,108 @@
+package Exercises;
+
+import java.util.Scanner;
+
+public class NumberToWord2 {
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter number between 0-1000");
+		int number = input.nextInt();
+		String first = "";
+		String second = "";
+		String third = "";
+
+		String numberAsString = Integer.toString(number);
+		if (number > 99 && number < 1000) { // this is for three digit //first digit starts here
+			if (numberAsString.charAt(0) == '1') {
+				first = "one hundred";
+			} else if (numberAsString.charAt(0) == '2') {first = "two hundred";
+			} else if (numberAsString.charAt(0) == '3') {first = "three hundred";
+			} else if (numberAsString.charAt(0) == '4') {first = "four hundred";
+			} else if (numberAsString.charAt(0) == '5') {first = "five hundred";
+			} else if (numberAsString.charAt(0) == '6') {first = "six hundred";
+			} else if (numberAsString.charAt(0) == '7') {first = "seven hundred";
+			} else if (numberAsString.charAt(0) == '8') {first = "eight hundred";
+			} else if (numberAsString.charAt(0) == '9') {first = "nine hundred";
+			}
+		}
+		if (number > 99 && number < 1000) { // second digit starts here
+			if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '0') {second = "and ten";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '1') {second = "and eleven";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '2') {second = "and twelve";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '3') {second = "and thirteen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '4') {second = "and fourteen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '5') {second = "and fifteen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '6') {second = "and sixteen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '7') {second = "and seventeen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '8') {second = "and eighteen";
+			} else if (numberAsString.charAt(1) == '1' && numberAsString.charAt(2) == '9') {second = "and nineteen";
+			} else if (numberAsString.charAt(1) == '2') {second = "and twenty";
+			} else if (numberAsString.charAt(1) == '3') {second = "and thirty";
+			} else if (numberAsString.charAt(1) == '4') {second = "and fourty";
+			} else if (numberAsString.charAt(1) == '5') {second = "and fifty";
+			} else if (numberAsString.charAt(1) == '6') {second = "and sixty";
+			} else if (numberAsString.charAt(1) == '7') {second = "and seventy";
+			} else if (numberAsString.charAt(1) == '8') {second = "and eighty";
+			} else if (numberAsString.charAt(1) == '9') {second = "and ninety";
+			} else if (numberAsString.charAt(1) == '0') {second = "";
+			}
+			if (number > 99 && number < 1000) { // third digit starts here
+				if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '0') {third = "";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '1') {third = "one";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '2') {third = "two";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '3') {third = "three";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '4') {third = "four";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '5') {third = "five";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '6') {third = "six";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '7') {third = "seven";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '8') {third = "eight";
+				} else if (numberAsString.charAt(1) != '1' && numberAsString.charAt(2) == '9') {third = "nine";
+				}
+			}
+		} else if (number >= 10 && number <= 99) { // 2 Digit Starts Here //First Digit
+			if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '0') {first = "ten";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '1') {first = "eleven";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '2') {first = "twelve";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '3') {first = "thirteen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '4') {first = "fourteen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '5') {first = "fifteen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '6') {first = "sixteen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '7') {first = "seventeen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '8') {first = "eighteen";
+			} else if (numberAsString.charAt(0) == '1' && numberAsString.charAt(1) == '9') {first = "nineteen";
+			} else if (numberAsString.charAt(0) == '2') {first = "twenty";
+			} else if (numberAsString.charAt(0) == '3') {first = "thirty";
+			} else if (numberAsString.charAt(0) == '4') {first = "fourty";
+			} else if (numberAsString.charAt(0) == '5') {first = "fifty";
+			} else if (numberAsString.charAt(0) == '6') {first = "sixty";
+			} else if (numberAsString.charAt(0) == '7') {first = "seventy";
+			} else if (numberAsString.charAt(0) == '8') {first = "eighty";
+			} else if (numberAsString.charAt(0) == '9') {first = "ninety";
+			}
+			if (number >= 10 && number <= 99)// last digits
+				if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '1') {second = "one";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '2') {second = "two";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '3') {second = "three";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '4') {second = "four";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '5') {second = "five";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '6') {second = "six";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '7') {second = "seven";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '8') {second = "eight";
+				} else if (numberAsString.charAt(0) != '1' && numberAsString.charAt(1) == '9') {second = "nine";
+				}
+		}
+		if (number == 1) {first = "one";  //one digit starts here
+		} else if (number == 2) {first = "two";
+		} else if (number == 3) {first = "three";
+		} else if (number == 4) {first = "four";
+		} else if (number == 5) {first = "five";
+		} else if (number == 6) {first = "six";
+		} else if (number == 7) {first = "seven";
+		} else if (number == 8) {first = "eight";
+		} else if (number == 9) {first = "nine";
+		} else if (number == 1000) {first = "one thousand";
+		}
+		System.out.println(first + " " + second + " " + third);
+	}
+}
