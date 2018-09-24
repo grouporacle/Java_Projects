@@ -1,0 +1,165 @@
+package Exercises;
+
+//This line is extra.If we don't use it java calculate decimals wrong (optional)----------------
+//here we changes java rules show only 2 decimals---------------------------------------
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class vendingMachine2 {
+	public static void main(String[] args) {
+//This line is extra.If we don't use it java calculate decimals wrong (optional)----------------
+//here we changes java rules show only 2 decimals---------------------------------------
+
+		DecimalFormat decFor = new DecimalFormat("0.00");
+//Scanner Here--------------------------------------------------------------------------	
+		Scanner input = new Scanner(System.in);
+//------------------------------INTRO--------------------------------------------------
+		System.out.println("Thank You for Choosing Our CokeFreeStyleMashine");
+		System.out.println("(Press 1)--(Press 2)--(Press 3)--(Press 4)--(Press 5) ");
+		System.out.println("   ^           ^          ^          ^          ^     ");
+		System.out.println(" Doritos ~  Biscuit  ~  Banana  ~  M&M's  ~  Lays");
+//Unit Prices -------they are cents, i multiply them with 100 to calculate right then i divide by 100----------
+		double layp = 150.0;
+		double mmp = 50.0;
+		double dorp = 100.0;
+		double banp = 5.0;
+		double biscp = 25.0;
+		double changeS = 0.0; //For Change if basket < 1
+//Unit Quantity --------------------------------------------------------------------------
+		int layq = 0;
+		int mmq = 0;
+		int dorq = 0;
+		int banq = 0;
+		int biscq = 0;
+//String for basket------------------------------------------------------------------------------
+		String lay = "";
+		String mm = "";
+		String dor = "";
+		String ban = "";
+		String bisc = "";
+//loop correction-----------------------------------------------------------------------
+		boolean loop = true;
+//----Loop Starts----------------------------------------------------------------------
+		while (loop) {
+//basket calculator--------------------------------------------------------------------------
+
+			System.out.println("Your Basket : " + dorq + dor + lay + mm + ban + bisc);
+			System.out.println("Please enter the Snack Number or press 0 to end shopping");
+//increasing and testing the quantities of snacks-----------------------------------------------
+			int value = input.nextInt();
+			if (value == 0) {
+				loop = false;
+			} else if (value == 1) {
+				++dorq;
+			} else if (value == 2) {
+				++biscq;
+			} else if (value == 3) {
+				++banq;
+			} else if (value == 4) {
+				++mmq;
+			} else if (value == 5) {
+				++layq;
+			} else {
+				System.out.println("please enter right value");
+			}
+//strings for basket display------------------------------------------------------------------
+			if (layq > 0) {
+				lay = " and " + layq + " Lays";
+			}
+			if (mmq > 0) {
+				mm = " and " + mmq + " M&M's";
+			}
+			if (dorq > 0) {
+				dor = " Doritos";
+			}
+			if (banq > 0) {
+				ban = " and " + banq + " Banana";
+			}
+			if (biscq > 0) {
+				bisc = " and " + biscq + " Biscuit";
+			}
+		}
+//OUT OF LOOP--total assigning here and divided by 100------------------------------------------------------
+		double total = (((dorq * dorp) + (biscq * biscp) + (banq * banp) + (mmq * mmp) + (layq * layp)) / 100.00000000);
+//    double asd = Math.round((total*2)/2.00000000000000000000000000000);TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
+//  System.out.println(asd);TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
+//out of loop-------------------------------------------------------------------------
+
+
+		int moneyEnt = 0;
+//calculating Changes is Total is 0------------------------------------------------------------------
+		if (total == 0 && dorq == 0 && biscq == 0 && banq == 0 && mmq == 0 && layq == 0) {
+			System.out.println("You Are Leaving with empty basket");
+			System.out.println("Thank You For Shopping Have A Nice Day");
+//Calculating Changes and accepting money if Total <1-------------------------------------------- 
+		} else if (total < 1) {
+			System.out.println("Please Ready Your Payment.We accept only 1 dollar.");
+			System.out.println("Your Total is = $" + decFor.format(total));
+			System.out.println("Enter your bill");
+			int money = input.nextInt();
+			if (money == 1) {
+				changeS = money - total;
+				System.out.println("you entered: " + money + " $");
+				System.out.println("your change is : " + decFor.format(changeS) + " $");
+				changeS *= 100;
+				int quarterS = (int) (changeS / 25.0);
+				changeS %= 25;
+				int dimeS = (int) (changeS / 10.0);
+				changeS %= 10;
+				int nickelS = (int) (changeS / 5);
+				changeS %= 5;
+				int pennieS = (int) (changeS / 1);
+
+				System.out.println(
+						"Dispensing: "+ quarterS + " quarters " + dimeS + " Dimes " + nickelS + " Nickels " + pennieS + " Pennies");
+				System.out.println("Thank You For Shopping Have A Nice Day");
+				System.exit(1);
+			} else {
+				System.out.println("Enter Right Value");
+				System.out.println("Vending Machine Accept Only 1$ Bills.");
+			}
+		} 
+// money counter----new----------------------------------------------------------------------------------------------
+// loop---------calculating changes and accepting money if total >1-------------------------------------------------
+			while (total > 0) {
+				System.out.println("Please Ready Your Payment.We accept only 1 dollar.");
+				System.out.println("Your Total is = $" + decFor.format(total));
+				System.out.println("Enter your bill");
+				int money = input.nextInt();
+//Here increasing the money and decreasing the total-------------------------------------------------------	  
+				if (money == 1) {
+					++moneyEnt;
+					total -= 1;
+					System.out.println("you entered: " + moneyEnt + " $");
+				} else {
+					System.out.println("Enter Right Value");
+					System.out.println("Vending Machine Accept Only 1$ Bills.");
+
+				}
+			}
+//out of second loop------------------------------------------------------   
+//if you leave without buying condition-----------------------------------------------------------
+		if (total == 0 && (dorq != 0 || biscq != 0 || banq != 0 || mmq != 0 || layq != 0)) {
+			System.out.println("you have no change");
+			System.out.println("Thank You For Shopping Have A Nice Day");
+		} else if (dorq != 0 || biscq != 0 || banq != 0 || mmq != 0 || layq != 0) {
+			double change = -total;
+			change = Double.parseDouble(decFor.format(change));
+			System.out.println("your change is " + change + " $");
+//Change Divider Calculator-------------------------------------------------------------------------------   
+			change *= 100;
+			int quarters = (int) (change / 25.0);
+			change %= 25;
+			int dimes = (int) (change / 10.0);
+			change %= 10;
+			int nickels = (int) (change / 5);
+			change %= 5;
+			int pennies = (int) (change / 1);
+
+			System.out.println(
+					"Dispensing: "+ quarters + " quarters " + dimes + " Dimes " + nickels + " Nickels " + pennies + " Pennies");
+			System.out.println("Thank You For Shopping Have A Nice Day");
+		}
+
+	}
+}
