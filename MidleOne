@@ -1,0 +1,22 @@
+package Exercises;
+
+import java.util.Scanner;
+
+public class MiddleOneExcersise {
+public static void main(String[] args) {
+	Scanner scan = new Scanner(System.in);
+	System.out.println("Enter your word");
+	String word = scan.nextLine();
+	
+	if (word.length()%2==1) {
+		System.out.println(word.charAt((word.length()-1)/2));
+	}else {System.out.println("enter odd digit length word");}
+	
+	
+	
+	
+	
+	
+	
+}
+}
