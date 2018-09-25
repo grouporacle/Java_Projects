@@ -1,0 +1,108 @@
+package Exercises;
+
+import java.util.Scanner;
+
+
+public class tipCalculatorWithSwitch {
+
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to the TipItip");
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Hope you enjoyed it");
+
+        System.out.println("How much is the total");
+
+        double totalAmount = input.nextDouble();
+        
+        if (totalAmount > 1.0 ) {
+
+        System.out.println("Alright. Now tell me how good they served you");
+
+        System.out.println("Enter a pertage of your tip\nPoor = 5%\nFair = 10%\nGood = 15%\nGreat = 20%\nExcellent = 25%");
+
+        int tipPercent = input.nextInt();
+        double tip = 0;
+        switch (tipPercent) {
+
+        case 5:
+            System.out.println("Poor");
+            tip = 0.05 * totalAmount;
+            break;
+        case 10:
+            System.out.println("Fair");
+            tip = 0.10 * totalAmount;
+            break;
+        case 15:
+            System.out.println("Good");
+            tip = 0.15 * totalAmount;
+            break;
+        case 20:
+            System.out.println("Great");
+            tip = 0.20 * totalAmount;
+            break;
+        case 25:
+            System.out.println("Excellent");
+            tip = 0.25 * totalAmount;
+            break;
+        default:
+            System.out.println("please enter only the amounts given");
+        }
+
+            System.out.println("How many people did join you?");
+
+        int peopleJoined = input.nextInt();
+
+        double tippedTotal = tip + totalAmount;
+
+        if (peopleJoined > 0) {
+
+            System.out.println("Very well. Do we split the check or together?");
+
+            System.out.println("1 for split/n 2 for together");
+
+        int splitChoice = input.nextInt();
+
+                if (splitChoice == 1) {
+        
+            System.out.println("Very well...I will split the check for you guys equally");
+
+        double splittedTip = tip / peopleJoined;
+                
+            System.out.println("Awesome! Here is your check");
+            System.out.println("The total is : $" + totalAmount);
+            System.out.println("Total per person: $" + totalAmount / peopleJoined);
+            System.out.println("The percentage you have chosen:  %" + tipPercent);
+            System.out.printf("tip for each person  %.2f\n", splittedTip);
+            System.out.println("total with tip " + tippedTotal);
+                
+                } else if (splitChoice == 2) {
+            
+            System.out.println("Very well...I will set the payment as 1 bill");
+            System.out.println("The total is: $" + totalAmount);
+            System.out.println("The percentage you have chosen: %" + tipPercent);
+            System.out.printf("Your tip:$ %.2f\n", tip);
+            System.out.println("total with tip " + tippedTotal);
+
+                } else {
+            System.out.println("Please enter 1 for split\n 2 for split");
+                }
+
+                } else if (peopleJoined == 0) {
+
+            System.out.println("Awesome! Here is your check");
+            System.out.println("Very well...I will set the payment as 1 bill");
+            System.out.println("The total is: $" + totalAmount);
+            System.out.println("The percentage you have chosen: %" + tipPercent);
+            System.out.printf("Your tip:$ %.2f\n", tip);
+            System.out.println("total with tip " + tippedTotal);
+        }
+
+                } else {
+            System.out.println("Invalid Entry");
+                }
+
+}
+}
