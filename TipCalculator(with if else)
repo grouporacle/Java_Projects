@@ -1,0 +1,135 @@
+	    public static void main(String[] args) {
+
+	        Scanner scan = new Scanner(System.in);
+	        System.out.println("Select please service quality: (Excellent-Great-Good-Fair-Poor");
+	        String serviceQuality = scan.next();
+
+	        System.out.println("Enter Amount of Bill");
+	        double amountOfBill = scan.nextDouble();
+
+	        System.out.println("Enter please number of guests");
+	        double numberOfPeople = scan.nextDouble();
+	        System.out.println("Select split: yes or no");
+	        String splitString = scan.next() ;
+	        boolean split = true;
+	       
+	        if(splitString.equalsIgnoreCase("yes")) {split= true;
+	        
+	        }else if (splitString.equalsIgnoreCase("no")) {split= false;
+	        
+	        }
+
+	        
+	        
+	        double tip;
+	        double totalToPay;
+	        double percentage;
+	        double totalPerPerson;
+
+	        if (serviceQuality.equalsIgnoreCase("Excellent") && (split == true)) {
+
+	            percentage = 0.25;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            totalPerPerson = totalToPay / numberOfPeople;
+	            System.out.println("Split :"+splitString);
+	            System.out.println("Number of people: " + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("Tip per person: " + totalPerPerson);
+	            System.out.println(serviceQuality);
+	        } else if (serviceQuality.equalsIgnoreCase("Great") && split == true) {
+	            percentage = 0.20;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            totalPerPerson = totalToPay / numberOfPeople;
+	            System.out.println("Split: "+splitString);
+	            System.out.println("Number of people:" + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("Tip per person: " + totalPerPerson);
+	        } else if (serviceQuality.equalsIgnoreCase("Good") && split == true) {
+	            percentage = 0.15;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            totalPerPerson = totalToPay / numberOfPeople;
+	            System.out.println("Split: "+splitString);
+	            System.out.println("Number of people:" + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("Tip per person: " + totalPerPerson);
+	        } else if (serviceQuality.equalsIgnoreCase("Fair") && split == true) {
+	            percentage = 0.10;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            totalPerPerson = totalToPay / numberOfPeople;
+	            System.out.println("Split: "+splitString);
+	            System.out.println("Number of people:" + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("Tip per person: " + totalPerPerson);
+	        } else if (serviceQuality.equalsIgnoreCase("Poor") && split == true) {
+	            percentage = 0.05;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            totalPerPerson = totalToPay / numberOfPeople;
+	            System.out.println("Split: "+splitString);
+	            System.out.println("Number of people:" + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("Tip per person: " + totalPerPerson);
+	            //false starts here
+	        } else if (serviceQuality.equalsIgnoreCase("Excellent") && (split == false)) {
+	            percentage = 0.25;
+	            totalToPay = amountOfBill * percentage + amountOfBill;
+	            tip = amountOfBill * percentage;
+	            System.out.println("Split: " + splitString);
+	            System.out.println("Number of people: " + numberOfPeople);
+	            System.out.println("Total to pay: " + totalToPay);
+	            System.out.println("Total tip: " + tip);
+	            System.out.println("service quality"+serviceQuality);
+	        	}else if (serviceQuality.equalsIgnoreCase("Great") && (split == false)) {
+		            percentage = 0.20;
+		            totalToPay = amountOfBill * percentage + amountOfBill;
+		            tip = amountOfBill * percentage;
+		            System.out.println("Split: " + splitString);
+		            System.out.println("Number of people: " + numberOfPeople);
+		            System.out.println("Total to pay: " + totalToPay);
+		            System.out.println("Total tip: " + tip);
+		            System.out.println("service quality"+serviceQuality);
+		        	}else if (serviceQuality.equalsIgnoreCase("Good") && (split == false)) {
+			            percentage = 0.15;
+			            totalToPay = amountOfBill * percentage + amountOfBill;
+			            tip = amountOfBill * percentage;
+			            System.out.println("Split: " + splitString);
+			            System.out.println("Number of people: " + numberOfPeople);
+			            System.out.println("Total to pay: " + totalToPay);
+			            System.out.println("Total tip: " + tip);
+			            System.out.println("service quality"+serviceQuality);
+			        	}else if (serviceQuality.equalsIgnoreCase("Fair") && (split == false)) {
+				            percentage = 0.10;
+				            totalToPay = amountOfBill * percentage + amountOfBill;
+				            tip = amountOfBill * percentage;
+				            System.out.println("Split: " + splitString);
+				            System.out.println("Number of people: " + numberOfPeople);
+				            System.out.println("Total to pay: " + totalToPay);
+				            System.out.println("Total tip: " + tip);
+				            System.out.println("service quality"+serviceQuality);
+				        	}else if (serviceQuality.equalsIgnoreCase("Poor") && (split == false)) {
+					            percentage = 0.05;
+					            totalToPay = amountOfBill * percentage + amountOfBill;
+					            tip = amountOfBill * percentage;
+					            System.out.println("Split: " + splitString);
+					            System.out.println("Number of people: " + numberOfPeople);
+					            System.out.println("Total to pay: " + totalToPay);
+					            System.out.println("Total tip: " + tip);
+					            System.out.println("service quality"+serviceQuality);
+					        	}
+	        
+	        
+	        
+	        
+	        scan.close();
+	    }
+
+	}
