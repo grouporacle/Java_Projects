@@ -1,0 +1,47 @@
+package Exercises;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class TipCalculatorLoop {
+public static void main(String[] args) {
+	
+	  Scanner input = new Scanner(System.in);
+   //Greetings---------------------------------------------------------------------------------------
+      System.out.println("How was your experience?\nExcellent----Great----Good----Fair----Poor");
+  //Array--Conditions----------------------------------------------------------------------
+      String serviceconditions [] = {"excellent","great","good","fair","poor"};
+      String splitconditions [] = {"yes", "no"};
+  //Check--service--conditions--with--array-----------------------------------------------------------
+      String serviceInput = input.nextLine();  
+      for(serviceInput = serviceInput;!Arrays.asList(serviceconditions).contains(serviceInput.toLowerCase());serviceInput = input.nextLine())
+      {System.out.println("Enter Right Quality Level");}
+ //enter--bill-input---------------------------------------------------------------------
+      System.out.println("How much is your bill?");
+      double bill =input.nextDouble();
+    //enter--people--amount-----------------------------------------------------------------------
+      System.out.println("How many people did join you?");
+      double people = input.nextDouble();    
+      //enter--split--input--and--check--with--array-------------------------------------------------------
+      System.out.println("Do you want split your bill?");
+      String splitinput = input.next();
+      for(splitinput=splitinput;!Arrays.asList(splitconditions).contains(splitinput.toLowerCase());splitinput = input.nextLine())
+      {System.out.println("Please Enter Yes or No");}
+//tip--conditions----------------------------------------------------------------------------
+      double tip=1;
+      if(serviceInput.toLowerCase().equals("excellent")) { tip = 0.25;
+      }else if(serviceInput.toLowerCase().equals("great")) { tip = 0.20;
+      }else if(serviceInput.toLowerCase().equals("good")) { tip = 0.15;
+      }else if(serviceInput.toLowerCase().equals("fair")) { tip = 0.10;
+      }else if(serviceInput.toLowerCase().equals("poor")) { tip = 0.05;
+      }
+//last--print-with-split-or-without-split------------------------------------------------------------------------------------------
+      if(splitinput.toLowerCase().equals("yes")) {System.out.println("The Quality Experiance: "+serviceInput+"\nYour total: " +bill+"\nYour total with tip: " +(bill+(tip*bill))+"\nTotal tip amount: "+bill*tip+"\nTotal per person: "
+    		  +bill/people+"\nTip for per person: "+(tip*bill)/people);
+      
+      }else if(splitinput.toLowerCase().equals("no")){System.out.println("The Quality Experiance: "+serviceInput+"\nYour total: " +bill+"\nYour total with tip: " +(bill+(tip*bill))+"\nTotal tip amount: "+bill*tip);
+      }
+      
+	
+}
+}
