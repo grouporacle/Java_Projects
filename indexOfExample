@@ -1,0 +1,53 @@
+package Exercises;
+
+import java.util.Scanner;
+
+public class indexOfExample {
+public static void main(String[] args) {
+	
+
+	Scanner input = new Scanner(System.in);
+	
+//First example we go on assigned value	
+	String longWord = "honay like buzzzz";
+	//if we want to write only second word we need to find "like" l and e. because we know second word.
+	//lets see the starting and ending numbers first.
+	//starting number: 
+	System.out.println(longWord.indexOf("l")); // starting number output is 6
+	System.out.println(longWord.indexOf("e")); // ending number output is 9
+	//so if we substring it we get like word
+	System.out.println(longWord.substring(6,10));//result is like
+	//remember we always add +1 to end point to print last word.
+//************************************************************************************************
+	//*****************************************************************************************
+//second example we know the word again. and we need to printout like again
+	longWord = "fish lucky swim beez like buzzz";
+
+//now we need to find l and e but now there is multiple l and e how can we find ours?
+//let try normal index of first :
+	System.out.println(longWord.indexOf("l"));  // output will 5
+	System.out.println(longWord.indexOf("e")); // output will 8
+//but when we check on the word like is at 20 and 23.So to find them we need starting point for index of too.
+	System.out.println(longWord.indexOf("l",9));//that means find l after 9th character. output will be 21
+	System.out.println(longWord.indexOf("e",20)); // output will 24 we need to add +1
+	
+	System.out.println(longWord.substring(21,25));//result is like
+	
+// now lets do that without knowing any word
+	longWord = input.nextLine();
+	//we dont know what letter second word starts with. so we need to find it by space. because after everyword there is a space
+	
+	System.out.println(longWord.indexOf(" ")+1);//this will give us first space mean space before second word's place without +1
+	//we put +1 because we want the second word not space
+	System.out.println(longWord.indexOf(" ",longWord.indexOf(" ")+1)); //this is our end point
+	//we are saying here find space after first space. first space is what we looking for. the second indexOf space is what we need to skip
+	//so we put what we looking for and we put after starting point.
+
+	System.out.println(longWord.substring((longWord.indexOf(" ")+1),longWord.indexOf(" ",longWord.indexOf(" ")+1)));//result is like
+
+
+
+
+
+}
+}
