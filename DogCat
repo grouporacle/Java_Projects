@@ -1,0 +1,25 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class catdog {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String word = input.nextLine();
+		int counterCat = 0;
+		int counterDog = 0;
+		for (int csp = 0; csp + 2 <= word.length(); csp++) {
+			if (word.charAt(csp) == 'c' && word.charAt(csp + 1) == 'a' && word.charAt(csp + 2) == 't') {
+				counterCat++;
+			}
+		}
+		for (int csp = 0; csp + 2 <= word.length(); csp++) {
+			if (word.charAt(csp) == 'd' && word.charAt(csp + 1) == 'o' && word.charAt(csp + 2) == 'g') {
+				counterDog++;
+			}
+		}
+		if(counterDog==counterCat) {
+		System.out.println(true);
+		}else {System.out.println("false");}
+	}
+}
