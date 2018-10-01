@@ -1,0 +1,27 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class MonthChecker {
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	while (true) {
+		int monthN = input.nextInt();
+		if (monthN<1 || monthN>13) {
+			break;
+			}else if (monthN==1){
+				System.out.println("i dont know months");
+		}else if(monthN==2) {System.out.println("and im too lazy to check it");
+		
+		}
+		}
+		
+	System.out.println("wrong input you are out of loop now and you cant go back");
+	
+	
+	
+	
+	
+}
+}
+
