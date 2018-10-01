@@ -1,0 +1,25 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class largestNumber {
+public static void main(String[] args) {
+	
+	Scanner input = new Scanner(System.in);
+	int counter = 1;
+	int number =1;
+	int largest = number;
+	while(counter <= 3) {
+		number =input.nextInt();
+		largest = number;
+		if(number < largest) {
+			largest = number;
+			
+		}
+		counter++;
+	}
+	
+	System.out.println(largest);
+	
+}
+}
