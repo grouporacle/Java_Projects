@@ -1,0 +1,25 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class primeNumber {
+public static void main(String[] args) {
+	
+	Scanner input = new Scanner(System.in);
+	
+	int number = input.nextInt();
+	boolean checker = true;
+	
+	for(int dsPoint = 2; dsPoint < number; dsPoint++) {
+		
+		System.out.println(dsPoint);
+		if (number%dsPoint == 0) {
+		checker = false;
+		break;
+		}
+	}
+	
+	
+	if(checker == false)System.out.println("not Prime");
+	else {System.out.println("prime");
+	}
