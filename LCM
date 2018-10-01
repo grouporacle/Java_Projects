@@ -1,0 +1,49 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class LCM {
+public static void main(String[] args) {
+	
+	Scanner input = new Scanner(System.in);
+	
+	int number1 = input.nextInt();
+	int number2 = input.nextInt();
+	int sp;
+	int big;
+	boolean lcm;
+	if(number1>number2) {big = number1;}
+	else {big=number2;}
+
+	
+	for(sp = big; true; sp++) {
+		
+		if(sp%number1==0&&sp%number2==0) {
+			System.out.println(sp);
+			break;
+			
+
+		}
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+}
