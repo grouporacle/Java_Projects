@@ -1,0 +1,21 @@
+package Coding_Tasks_Loop;
+
+import java.util.Scanner;
+
+public class doubleCharLoop {
+public static void main(String[] args) {
+	Scanner input = new Scanner (System.in);
+	String word = input.nextLine();
+	
+	
+	
+	
+	for(int sp=0; sp<word.length();sp++) {
+		System.out.print(word.charAt(sp));
+		System.out.print(word.charAt(sp));
+
+	}
+	
+	
+}
+}
