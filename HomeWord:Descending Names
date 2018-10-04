@@ -1,0 +1,73 @@
+package LoopsMondayProject;
+
+import java.util.Scanner;
+
+public class descendingLetters {
+public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	
+	String word1 = input.next();
+	String word2 = input.next();
+	String word3 = input.next();
+	String first = "";
+	String sec = "";
+	String third = "";
+	if (( word1.compareTo(word2) <0) && (word1.compareTo(word3) <0) ) {
+		//condition of word1 is first letter
+		       first=word1;}
+	if (( word1.compareTo(word2) <0) && (word1.compareTo(word3) >0) ) {
+		//condition of word1 is second letter 1
+		       first=word3;
+		       sec=word1;
+		       third=word2;}
+	if (( word1.compareTo(word2) >0) && (word1.compareTo(word3) <0) ) {
+		//condition of word1 is second letter 1
+		       first=word2;
+		       sec=word1;
+		       third=word3;}
+	if (( word1.compareTo(word2) >0) && (word1.compareTo(word3) >0) ) {
+		//condition of word1 is third letter
+		       third=word1;}
+	if (( word2.compareTo(word1) <0) && (word2.compareTo(word3) <0) ) {
+		//condition of word2 is first letter
+		       first=word2;}	
+	if (( word2.compareTo(word1) <0) && (word2.compareTo(word3) >0) ) {
+		//condition of word2 is second letter 1
+		       first=word3;
+		       sec=word2;
+		       third=word1;}
+	if (( word2.compareTo(word1) >0) && (word2.compareTo(word3) <0) ) {
+		//condition of word2 is second letter 1
+		       first=word1;
+		       sec=word2;
+		       third=word3;}
+	if (( word2.compareTo(word1) >0) && (word2.compareTo(word3) >0) ) {
+		//condition of word2 is third letter
+		       third=word2;}
+	
+	
+	
+	if (( word3.compareTo(word1) <0) && (word3.compareTo(word2) <0) ) {
+		//condition of word3 is first letter
+		       first=word3;}	
+	if (( word3.compareTo(word1) <0) && (word3.compareTo(word2) >0) ) {
+		//condition of word3 is second letter 1
+		       first=word2;
+		       sec=word3;
+		       third=word1;}
+	if (( word3.compareTo(word1) >0) && (word3.compareTo(word2) <0) ) {
+		//condition of word3 is second letter 1
+		       first=word1;
+		       sec=word3;
+		       third=word2;}
+	if (( word3.compareTo(word1) >0) && (word3.compareTo(word2) >0) ) {
+		//condition of word3 is third letter
+		       third=word3;}
+	
+	
+	
+	System.out.println("ascending: " +first+" "+sec+ " "+third+"\ndescending: "+third+" "+ sec+" "+third);
+	
+	
+}
+}
