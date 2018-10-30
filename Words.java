@@ -128,20 +128,29 @@ public class Words {
 	 * False otherwise.
 	 */
 	public boolean containsSentence(String sentence){
+	//--------------------Solution Easy Way----------------------------
+		
 		int count = 0;
-		 
-		for(int i=0; i<sentence.split(" ").length; i++) {
-	            for(int j =0 ; j<words.length;j++) {
-	            	if(sentence.split(" ")[i].equals(words[j])) {
-	            		count++;
-	            	}
-	            }
-	            
-	        }
-		if(count==sentence.split(" ").length) {
-		  return true;}
-		else return false;
+		for(String a : sentence.split(" ")) {
+		if (contains(a))count++;
 	}
+		return count==sentence.split(" ").length;
+	//------------------Solution Long Way --------------------------------------------	
+	
+		//	int count = 0;
+		 
+	//	for(int i=0; i<sentence.split(" ").length; i++) {
+	//           for(int j =0 ; j<words.length;j++) {
+	//           	if(sentence.split(" ")[i].equals(words[j])) {
+	//           		count++;
+	//           	}
+	//           }
+	//           
+	//        }
+	//	if(count==sentence.split(" ").length) {
+	//	  return true;}
+	//	else return false;
+	   }
 	
 	/**
 	 * 	reverse a sentence
