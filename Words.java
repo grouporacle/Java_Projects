@@ -129,7 +129,8 @@ public class Words {
 	 */
 	public boolean containsSentence(String sentence){
 		int count = 0;
-		  for(int i=0; i<sentence.split(" ").length; i++) {
+		 
+		for(int i=0; i<sentence.split(" ").length; i++) {
 	            for(int j =0 ; j<words.length;j++) {
 	            	if(sentence.split(" ")[i].equals(words[j])) {
 	            		count++;
@@ -188,22 +189,41 @@ public class Words {
 	 * @return true if all letters from word1 exist in word2, and all letters from word2 
 	 * exist in word1. 
 	 */
-	public boolean anagram(String word1, String word2){
-		  boolean[] checker =new boolean[word2.length()];
-		  boolean[] checker2 = new boolean[word1.length()];
-		  for(int i = 0; i<checker.length;i++){
-			    checker[i]=true;
-			    checker2[i]=true;}
-		   int count =0;
-		    for(int i =0;i<word1.length();i++){
-		      for(int j =0; j<word2.length();j++){
-		          if(word1.toLowerCase().charAt(i)==word2.toLowerCase().charAt(j)&&checker[j]==true&&checker2[i]==true&&word1.length()==word2.length())
-			        {count++;checker[j]=false;
-			        checker2[i]=false;
-			        }
-		      }
-		    }
-		    return count==word1.length();
+	
+//-------------------------------Solution Better-------------------------------------------	
+		public boolean anagram(String word1, String word2){
+			 String sword ="";
+			 String sword2="";
+			 String[]arr1=word1.split("");
+			 Arrays.sort(arr1);
+			 String[]arr2=word2.split("");
+			 Arrays.sort(arr2);
+			 for(String a : arr1) {
+				 sword+=a;
+			 }
+			 for(String a : arr2) {
+				 sword2+=a;
+			 }
+			 return sword.equals(sword2);
+
+		
+			
+//----------------------Solution2------maybe bugged-------------------------------
+	//	  boolean[] checker =new boolean[word2.length()];
+	//	  boolean[] checker2 = new boolean[word1.length()];
+	//	  for(int i = 0; i<checker.length;i++){
+	//		    checker[i]=true;
+	//		    checker2[i]=true;}
+	//	   int count =0;
+	//	    for(int i =0;i<word1.length();i++){
+	//	      for(int j =0; j<word2.length();j++){
+	//	          if(word1.toLowerCase().charAt(i)==word2.toLowerCase().charAt(j)&&checker[j]==true&&checker2[i]==true&&word1.length()==word2.length())
+	//		        {count++;checker[j]=false;
+	//		        checker2[i]=false;
+	//		        }
+	//	      }
+	//	    }
+	//	    return count==word1.length();
 		
 	}
 	
@@ -221,29 +241,37 @@ public class Words {
 	 */
 	public void findAnagram(String word, String fileName){
 		addWordsToArray(fileName);	//DO NOT CHANGE
-
-		String sword ="";
-		String sword2 ="";
-		String sword3 = "";
-		String[] arr = word.split("");
-		Arrays.sort(arr);
-		for(int i =0;i<arr.length;i++) {
-			sword += arr[i];
-		}for(int i =0;i<words.length;i++) {
-			sword2 = "";
-			sword3 = "";
-			String[] arr2 = new String[words[i].split("").length];
-			for(int j=0;j<words[i].split("").length;j++) {
-				arr2=words[i].split("");
-				Arrays.sort(arr2);
-				sword2+=arr2[j];
-				sword3+=words[i].split("")[j];
-			}
-			
-			if(sword.equals(sword2)) {
-				System.out.println(sword3);
-			}
+	
+		
+//-------------------------------Solution easy way------------------------		
+		for(int i=0;i<words.length;i++) {
+		if(anagram(word,words[i]))System.out.println(words[i]);
 		}
+		
+		
+//-----------------------------Solution long way----------------------------		
+		//		String sword ="";
+		//		String sword2 ="";
+		//		String sword3 = "";
+		//		String[] arr = word.split("");
+		//		Arrays.sort(arr);
+		//		for(int i =0;i<arr.length;i++) {
+		//			sword += arr[i];
+		//		}for(int i =0;i<words.length;i++) {
+		//			sword2 = "";
+		//			sword3 = "";
+		//			String[] arr2 = new String[words[i].split("").length];
+		//			for(int j=0;j<words[i].split("").length;j++) {
+		//				arr2=words[i].split("");
+		//				Arrays.sort(arr2);
+		//				sword2+=arr2[j];
+		//				sword3+=words[i].split("")[j];
+		//			}
+			
+		//			if(sword.equals(sword2)) {
+		//				System.out.println(sword3);
+		//			}
+		//		}
 
 			
 		
