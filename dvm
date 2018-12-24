@@ -1,0 +1,190 @@
+package machine;
+
+
+import java.util.*;
+
+import javax.swing.event.ListSelectionEvent;
+
+
+public class DrinkVendingMachine extends VendingMachine {
+
+    /**
+     * HAS-A relation
+     * DrinkVendingMachine HAS-A list of Drink objects
+     */
+    public List<Drink> drinks;
+
+    /**
+     * current will refer to currently selected drink
+     */
+    public Drink current;
+    /**
+     * after selecting the drink, whatever amount customer owes for the drink
+     */
+    public double amountLeftToPay;
+    public double changeHolder;
+    /**
+     * after paying for the drink whatever amount is change
+     */
+    public double change;
+    /**
+     * used to check if drink is currently selected or no
+     */
+    public boolean isSelected;
+
+    /**
+     * public constructor.
+     * @param drinksParam VAR-ARGs.
+     * Assign each Drink object into drinks list
+     */
+    public DrinkVendingMachine(Drink... drinksParam) {
+       //TODO
+    	drinks = new ArrayList<>();
+      for(int i =0;i<drinksParam.length;i++) {
+    	 Drink a = drinksParam[i];
+    	  this.drinks.add(a);
+      }
+    
+       
+       
+    }
+
+	@Override
+	public void select(int itemNumber) {
+		   /**
+	     * Override select abstract method.
+	     * This method will be used to select a drink in the vending machine
+	     * @param drinkNumber to select in Vending machine
+	     *                    options are 0 to drinks.size-1
+	     * 1. if drinkNumber is < 0 or more than drinks.size-1
+	     *       then isSelected should be false
+	     * 2. if a drink's quantity at that position is <=0
+	     *       then isSelected should be false
+	     * 3. Set the drink object at that index to current variable
+	     * 4. Set the cost of the selected drink to amountLeftToPay variable
+	     * 5. Set isSelected to true
+	     *
+	     */
+
+	    //TODO: implement select method
+		
+		if(itemNumber<0||itemNumber>drinks.size()-1||drinks.size()<=0) {
+			isSelected=false;
+			current=null;
+			}else if(drinks.get(itemNumber).getQuantity()==0){
+				isSelected=false;
+				current=null;
+			}
+		
+		else {
+		
+			isSelected=true;
+			current= drinks.get(itemNumber);
+			amountLeftToPay=drinks.get(itemNumber).getCost();
+
+		}
+		
+		
+	}
+
+	@Override
+	public double pay(double money) {
+		 /**
+	     *
+	     * Override abstract method pay
+	     * Method is used to pay for the selected drink
+	     *
+	     * 1. If isSelected is false then return 0.0
+	     * 2. Deduct money from amountLeftToPay
+	     * 3. if there is any change set the value to change variable (positive value)
+	     * 4. Decrease the quantity of the selected drink by 1
+	     * 5. Return amountLeftToPay value
+	     *
+	     * @param money
+	     *
+	     */
+	    //TODO: implement pay menthod
+		if(!isSelected)
+		amountLeftToPay= 0.0;
+		else {
+			current.setQuantity(current.getQuantity()-1);
+			amountLeftToPay=current.getCost()-money;
+			change=amountLeftToPay;
+			changeHolder=change;
+			if(amountLeftToPay<0)
+				change=-amountLeftToPay;
+			changeHolder=change;
+		}
+		return amountLeftToPay;
+	}
+		
+	@Override
+	public double returnChange() {
+		
+		 /**
+	     * Override abstract method returnChange
+	     * Method is used to return the change to the customer
+	     * Return the value of change from the method and
+	     * 1. Set change to 0
+	     * 2. Set amountLeftToPay to 0
+	     *
+	     * @return
+	     */
+	   change=0.0;
+	   amountLeftToPay=0.0;
+	   //TODO: implement returnChange method
+		return changeHolder;
+	}
+
+	@Override
+	public void cancel() {
+	    /**
+	     * Override abstract method cancel
+	     * Method is used by customers to cancel any selected drinks
+	     * 1. set current drink to null
+	     * 2. amountLeftToPay is zero
+	     * 3. isSelected to false
+	     * 4. return any changes
+	     */
+	    
+	    //TODO: implement cancel method
+		current=null;
+		amountLeftToPay=0.0;
+		isSelected=false;
+		change=0.0;
+		
+		
+	}
+
+ 
+    
+    
+    
+    
+    
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+   
+   
+   
+   
+   
+
+
+    
+    
+    
+    
+    
+
+}
